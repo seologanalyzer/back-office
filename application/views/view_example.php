@@ -1,0 +1,1 @@
+USERTYPE : <?php echo $this->session->userdata('usertype'); ?>
