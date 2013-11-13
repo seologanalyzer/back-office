@@ -169,15 +169,11 @@ class M_authentification extends MY_Model {
 
     if ($uType === 0 && $sCtrl !== 'authentification') {
       $this->redirect_user();
-    } else if ($uType === 1 && $sCtrl === 'authentification') {
+    } elseif ($uType === 1 && $sCtrl === 'authentification') {
       if ($sFunc !== 'disconnect')
         $this->redirect_user();
       else
         return;
-    }
-    else if ($sCtrl === 'logger') {
-      //todo or if remote ip == l'ip du serveur
-      $this->redirect_user();
     }
   }
 
