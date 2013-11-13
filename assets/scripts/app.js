@@ -323,7 +323,7 @@ var App = function () {
 
     var handleSidebarToggler = function () {
         // handle sidebar show/hide
-        $('.page-sidebar').on('click', '.sidebar-toggler', function (e) {            
+        $('.container-fluid').on('click', '.sidebar-toggler', function (e) {            
             var body = $('body');
             var sidebar = $('.page-sidebar');
 
@@ -369,7 +369,7 @@ var App = function () {
                 if ($('body').hasClass("page-sidebar-closed")) {
                     if ($('.sidebar-search').hasClass('open') == false) {
                         if ($('.page-sidebar-fixed').size() === 1) {
-                            $('.page-sidebar .sidebar-toggler').click(); //trigger sidebar toggle button
+                            $('.container-fluid .sidebar-toggler').click(); //trigger sidebar toggle button
                         }
                         $('.sidebar-search').addClass("open");
                     } else {

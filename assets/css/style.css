@@ -350,13 +350,13 @@ Header and header elements.
   display: inline-block;
   margin-top: -1px;
   margin-right: 0;
+  margin-left:30px;
   padding-left: 0;
   padding-right: 0;
-  width: 225px;
 }
 
 .header .brand img {
-  margin-left: 20px;
+  margin-left: 0px;
 }
 
 .header .btn-navbar {
@@ -796,11 +796,11 @@ ul.page-sidebar-menu > li > ul.sub-menu  li > ul.sub-menu > li > a > i {
 Sidebar toggler(show/hide)
 ***/
 
-.page-sidebar .sidebar-toggler {
+.sidebar-toggler {
   cursor: pointer; 
   opacity: 0.5;
   filter: alpha(opacity=50);
-  margin-top: 15px;
+  margin-top: 7px;
   margin-left: 175px;
   width: 29px;
   height: 29px;
