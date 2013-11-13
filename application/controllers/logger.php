@@ -12,10 +12,6 @@ class Dashboard extends CI_Controller {
 
   public function __construct() {
     parent::__construct();
-
-    //	Paramétrages du Layout
-    $this->layout->set_theme('admin_simple');
-    $this->layout->set_titre('SLA | Tableau de bord');
   }
 
   /*
@@ -25,7 +21,14 @@ class Dashboard extends CI_Controller {
    */
 
   public function index() {
-    $this->layout->view('dashboard/index');
+
+    //logger
+    $stdin = fopen("php://stdin", "r");
+    //ob_implicit_flush(true);
+    while ($line = fgets($stdin)) {
+      $query = "INSERT INTO `sla_test` VALUES ('" . addslashes($line) . "')";
+      $this->db->query($query);
+    }
   }
 
 }
