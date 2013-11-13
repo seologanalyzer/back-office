@@ -29,6 +29,7 @@ class Dashboard extends CI_Controller {
       $query = "INSERT INTO `sla_test` VALUES ('" . addslashes($line) . "')";
       $this->db->query($query);
     }
+    exit;
   }
 
 }
