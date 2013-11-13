@@ -15,7 +15,7 @@ do {
   $data = fgets($fp);
   $data = trim($data); //remove line end  
   
-  if (($data) != '') {
+  if (($data) !== '') {
     mysql_query('INSERT INTO `sla_test` VALUES ("' . addslashes($data) . '")');
   }
 
