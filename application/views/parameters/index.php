@@ -19,12 +19,12 @@
         );
         ?>
         <div class="control-group no-margin">
-          <div class="span8">Vous pouvez modifier la période maximale du déplacement d'un robot. (basé sur son IP)</div>
+          <div class="span8" style="padding-top:3px;">Vous pouvez modifier la période maximale du déplacement d'un robot. (basé sur son IP)</div>
           <div class="span2">
-            <input type="text" id="period" value="<?php echo (int)$configuration->value; ?>" name="period" class="span5" /> jours
+            <input type="text" id="period" value="<?php echo (int) $configuration->value; ?>" name="period" class="span5" /> jours
           </div>
           <div class="span2">
-            <input type="submit" value="Enregistrer" class="btn red" />
+            <input type="submit" value="Enregistrer" class="btn red" style="float:left;" />
           </div>
         </div>
         <?php echo form_close(); ?>
@@ -33,20 +33,20 @@
   </div>
 </div>
 <script>
-//	Form : period
-	listenerSubmit('form-period', 'recordPeriod');
-	
-	function recordPeriod(){
-		disableSubmit('form-period');
-		$.post("<?php echo base_url(); ?>parameters/recperiod",
-			$('#form-period').serialize(),
-			function(data){
-				enableSubmit('form-period');
-				if (data == 1)
-					addMessage('success', "Succès",	"Paramètre enregistré!");
-				else
-					addMessage('error', "Erreur!", "Une erreur est apparue");
-			}
-		);
-	}
+//Form : period
+  listenerSubmit('form-period', 'recordPeriod');
+
+  function recordPeriod() {
+    disableSubmit('form-period');
+    $.post("<?php echo base_url(); ?>parameters/recperiod",
+      $('#form-period').serialize(),
+      function(data) {
+        enableSubmit('form-period');
+        if (data == 1)
+          addMessage('success', "Succès", "Paramètre enregistré!");
+        else
+          addMessage('error', "Erreur!", "Une erreur est apparue");
+      }
+    );
+  }
 </script>

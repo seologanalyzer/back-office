@@ -23,7 +23,7 @@ do {
       $x = explode(' ', $xpl[7]);
       $url = utf8_decode(urldecode($xpl[6] . $x[1]));
 
-      mysql_query("INSERT INTO `sla_log_bot` VALUES (NULL, '" . $xpl[1] . "',  '" . $xpl[3] . "', '" . $xpl[2] . "',"
+      mysql_query("INSERT INTO `".SLA_DB_PREFIX."_log_bot` VALUES (NULL, '" . $xpl[1] . "',  '" . $xpl[3] . "', '" . $xpl[2] . "',"
               . " '" . $xpl[0] . "', '" . $url . "', '1', '" . date('Y-m-d H:i:s') . "')");
 
     //googleuser
@@ -41,7 +41,7 @@ do {
         $query['q'] = 'not provided';
       endif;
 
-      mysql_query("INSERT INTO `sla_log_user` VALUES (NULL, '" . $xpl[0] . "',  '" . $url . "', '1',"
+      mysql_query("INSERT INTO `".SLA_DB_PREFIX."_log_user` VALUES (NULL, '" . $xpl[0] . "',  '" . $url . "', '1',"
               . " '" . $query['q'] . "', '" . date('Y-m-d H:i:s') . "')");
 
     //bing
@@ -50,7 +50,7 @@ do {
       $x = explode(' ', $xpl[7]);
       $url = utf8_decode(urldecode($xpl[6] . $x[1]));
 
-      mysql_query("INSERT INTO `sla_log_bot` VALUES (NULL, '" . $xpl[1] . "',  '" . $xpl[3] . "', '" . $xpl[2] . "',"
+      mysql_query("INSERT INTO `".SLA_DB_PREFIX."_log_bot` VALUES (NULL, '" . $xpl[1] . "',  '" . $xpl[3] . "', '" . $xpl[2] . "',"
               . " '" . $xpl[0] . "', '" . $url . "', '2', '" . date('Y-m-d H:i:s') . "')");
 
     //binguser
@@ -68,12 +68,12 @@ do {
         $query['q'] = 'not provided';
       endif;
 
-      mysql_query("INSERT INTO `sla_log_user` VALUES (NULL, '" . $xpl[0] . "',  '" . $url . "', '2',"
+      mysql_query("INSERT INTO `".SLA_DB_PREFIX."_log_user` VALUES (NULL, '" . $xpl[0] . "',  '" . $url . "', '2',"
               . " '" . $query['q'] . "', '" . date('Y-m-d H:i:s') . "')");
 
     endif;
 
-    mysql_query('INSERT INTO `sla_test` VALUES ("' . addslashes($data) . '")');
+    mysql_query('INSERT INTO `".SLA_DB_PREFIX."_test` VALUES ("' . addslashes($data) . '")');
   }
 
   //process the data

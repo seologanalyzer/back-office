@@ -5,7 +5,6 @@ if (!defined('BASEPATH')) {
 }
 
 class Dashboard extends CI_Controller {
-
   /*
     ======================================
     CONSTRUCTEUR
@@ -15,9 +14,10 @@ class Dashboard extends CI_Controller {
   public function __construct() {
     parent::__construct();
 
-    //	Paramétrages du Layout
     $this->layout->set_theme('admin_simple');
     $this->layout->set_titre('SLA | Tableau de bord');
+
+    $this->load->model('m_configuration', 'configuration');
   }
 
   /*
@@ -27,7 +27,10 @@ class Dashboard extends CI_Controller {
    */
 
   public function index() {
-    $this->layout->view('dashboard/index');
+    $datas = array(
+      'configuration' => $this->configuration->getProperty('LAST_ANALYSIS')
+    );
+    $this->layout->view('dashboard/index', $datas);
   }
 
 }
