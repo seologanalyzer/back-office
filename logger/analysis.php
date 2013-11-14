@@ -13,27 +13,32 @@ $bots = array('1', '2');
 foreach ($bots as $bot):
   //visits/day
   //gg
-  $query = mysql_query("SELECT date FROM `" . SLA_DB_PREFIX . "log_bot`"
-          . "WHERE id_bot = '".$bot."' AND date BETWEEN '" . date('Y-m-d') . " 00:00:00' "
+  $query = mysql_query("SELECT date, loading_time FROM `" . SLA_DB_PREFIX . "log_bot`"
+          . "WHERE id_bot = '" . $bot . "' AND date BETWEEN '" . date('Y-m-d') . " 00:00:00' "
           . "AND '" . date('Y-m-d') . " 23:59:59' ");
   $array = array();
   $time = array();
-
+  $load_hour = array();
+  $load = 0;
   while ($z = mysql_fetch_row($query)) {
     $array[] = $z[0];
+    $load += $z[1];
     $date = strtotime($z[0]);
     $time[date('H', $date)] = (!isset($time[date('H', $date)])) ? '1' : $time[date('H', $date)] + 1;
+    $load_hour[date('H', $date)] = (!isset($load_hour[date('H', $date)])) ? $z[1] : $load_hour[date('H', $date)]+$z[1];
   }
   $v = sizeof($array);
+  $load = ($load) / $v;
   mysql_query("REPLACE INTO `" . SLA_DB_PREFIX . "crawl_day`"
-          . " (value, id_bot, date) VALUES "
-          . "('" . $v . "', '".$bot."', '" . date('Y-m-d') . "') ");
+          . " (value, id_bot, date, loading_time) VALUES "
+          . "('" . $v . "', '" . $bot . "', '" . date('Y-m-d') . "', '" . $load . "') ");
 
   //recording hours
   foreach ($time as $hour => $value):
+    $t = $load_hour[$hour]/$value;
     mysql_query("REPLACE INTO `" . SLA_DB_PREFIX . "crawl_hour`"
-            . " (value, id_bot, date, hour) VALUES "
-            . "('" . $value . "', '".$bot."', '" . date('Y-m-d') . "', '" . $hour . "') ");
+            . " (value, id_bot, date, hour, loading_time) VALUES "
+            . "('" . $value . "', '" . $bot . "', '" . date('Y-m-d') . "', '" . $hour . "', '".$t."') ");
   endforeach;
 
 endforeach;

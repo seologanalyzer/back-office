@@ -28,8 +28,144 @@
     </div>
   </div>
 </div>
+<ul class="breadcrumb">
+  <li>
+    <i class="icon-calendar-empty "></i>
+    <span>Aujourd'hui</span>
+  </li>
+</ul>
+<div class="row-fluid">
+  <div class="span3 responsive" data-desktop="span3" data-tablet="span6">
+    <div class="dashboard-stat blue">
+      <div class="visual">
+        <i class="icon-bar-chart"></i>
+      </div>
+      <div class="details">
+        <div class="number">239</div>
+        <div class="desc">Visites <br/> de GoogleBot </div>
+      </div>
+      <a class="more" href="#">
+        Voir le détail
+        <i class="m-icon-swapright m-icon-white"></i>
+      </a>
+    </div>
+  </div>
+  <div class="span3 responsive" data-desktop="span3" data-tablet="span6">
+    <div class="dashboard-stat purple">
+      <div class="visual">
+        <i class="icon-bar-chart"></i>
+      </div>
+      <div class="details">
+        <div class="number">88</div>
+        <div class="desc">Visites <br/> de BingBot </div>
+      </div>
+      <a class="more" href="#">
+        Voir le détail
+        <i class="m-icon-swapright m-icon-white"></i>
+      </a>
+    </div>
+  </div>
+  <div class="span3 responsive" data-desktop="span3" data-tablet="span6">
+    <div class="dashboard-stat yellow">
+      <div class="visual">
+        <i class="icon-dashboard"></i>
+      </div>
+      <div class="details">
+        <div class="number">23,023ms</div>
+        <div class="desc">Chargement <br/> moyen des pages </div>
+      </div>
+      <a class="more" href="#">
+        Voir le détail
+        <i class="m-icon-swapright m-icon-white"></i>
+      </a>
+    </div>
+  </div>
+  <div class="span3 responsive" data-desktop="span3" data-tablet="span6">
+    <div class="dashboard-stat red">
+      <div class="visual">
+        <i class="icon-medkit"></i>
+      </div>
+      <div class="details">
+        <div class="number">20</div>
+        <div class="desc">Pages 404 <br/> détectées </div>
+      </div>
+      <a class="more" href="#">
+        Voir le détail
+        <i class="m-icon-swapright m-icon-white"></i>
+      </a>
+    </div>
+  </div>
+</div>
+<ul class="breadcrumb">
+  <li>
+    <i class="icon-calendar-empty "></i>
+    <span>30 derniers jours</span>
+  </li>
+</ul>
+<div class="row-fluid">
+  <div class="span3 responsive" data-desktop="span3" data-tablet="span6">
+    <div class="dashboard-stat blue">
+      <div class="visual">
+        <i class="icon-bar-chart"></i>
+      </div>
+      <div class="details">
+        <div class="number">23123</div>
+        <div class="desc">Visites <br/> de GoogleBot </div>
+      </div>
+      <a class="more" href="#">
+        Voir le détail
+        <i class="m-icon-swapright m-icon-white"></i>
+      </a>
+    </div>
+  </div>
+  <div class="span3 responsive" data-desktop="span3" data-tablet="span6">
+    <div class="dashboard-stat purple">
+      <div class="visual">
+        <i class="icon-bar-chart"></i>
+      </div>
+      <div class="details">
+        <div class="number">11023</div>
+        <div class="desc">Visites <br/> de BingBot </div>
+      </div>
+      <a class="more" href="#">
+        Voir le détail
+        <i class="m-icon-swapright m-icon-white"></i>
+      </a>
+    </div>
+  </div>
+  <div class="span3 responsive" data-desktop="span3" data-tablet="span6">
+    <div class="dashboard-stat yellow">
+      <div class="visual">
+        <i class="icon-dashboard"></i>
+      </div>
+      <div class="details">
+        <div class="number">45,343ms</div>
+        <div class="desc">Chargement <br/> moyen des pages </div>
+      </div>
+      <a class="more" href="#">
+        Voir le détail
+        <i class="m-icon-swapright m-icon-white"></i>
+      </a>
+    </div>
+  </div>
+  <div class="span3 responsive" data-desktop="span3" data-tablet="span6">
+    <div class="dashboard-stat red">
+      <div class="visual">
+        <i class="icon-medkit"></i>
+      </div>
+      <div class="details">
+        <div class="number">240</div>
+        <div class="desc">Pages 404 <br/> détectées </div>
+      </div>
+      <a class="more" href="#">
+        Voir le détail
+        <i class="m-icon-swapright m-icon-white"></i>
+      </a>
+    </div>
+  </div>
+</div>
 <script>
-//Form : period
+  //Form : period
   listenerSubmit('form-analysis', 'launchAnalysis');
 
   function launchAnalysis() {

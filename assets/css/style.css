@@ -1000,7 +1000,7 @@ Page title
   letter-spacing: -1px;
   display: block;
   color: #666;
-  margin: 20px 0px 15px 0px;
+  margin: 10px 0px 15px 0px;
   font-weight: 300;
   font-family: 'Open Sans', sans-serif;
 }
@@ -1027,7 +1027,7 @@ Page breadcrumb
   box-shadow: none;
   padding-right: 0px;
   padding-left: 8px;
-  margin-bottom: 25px;
+  margin-bottom: 10px;
   border:0px !important;  
   background-color: #eee;
 }
@@ -3067,7 +3067,7 @@ Dashboard container
 Dashboard stats
 ***/
 .dashboard-stat {
-  margin-bottom: 25px;
+  margin-bottom: 10px;
 }
 
 .dashboard-stat:before,
@@ -3096,7 +3096,7 @@ Dashboard stats
 
 .dashboard-stat .details {
   float: right;
-  padding-right: 10px;
+  padding-right: 5px;
 }
 
 .dashboard-stat .details .number {    
