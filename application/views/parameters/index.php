@@ -24,7 +24,7 @@
             <input type="text" id="period" value="<?php echo (int)$configuration->value; ?>" name="period" class="span5" /> jours
           </div>
           <div class="span2">
-            <input type="button" value="Enregistrer" onclick="recordPeriod()" class="btn red" />
+            <input type="submit" value="Enregistrer" class="btn red" />
           </div>
         </div>
         <?php echo form_close(); ?>
@@ -33,15 +33,20 @@
   </div>
 </div>
 <script>
-  function recordPeriod() {
-    $.post("<?php echo base_url(); ?>parameters/recperiod", $('#form-period').serialize(),
-            function(data) {
-              if (data == 1) {
-                toastr.success('Paramètre enregistré!', 'Succès')
-              } else {
-                toastr.error('Une erreur est apparue', 'Erreur!')
-              }
-              return false;
-            }, "text");
-  }
+//	Form : period
+	listenerSubmit('form-period', 'recordPeriod');
+	
+	function recordPeriod(){
+		disableSubmit('form-period');
+		$.post("<?php echo base_url(); ?>parameters/recperiod",
+			$('#form-period').serialize(),
+			function(data){
+				enableSubmit('form-period');
+				if (data == 1)
+					addMessage('success', "Succès",	"Paramètre enregistré!");
+				else
+					addMessage('error', "Erreur!", "Une erreur est apparue");
+			}
+		);
+	}
 </script>

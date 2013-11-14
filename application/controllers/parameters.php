@@ -11,6 +11,7 @@ class Parameters extends CI_Controller {
 
     $this->layout->set_theme('admin_simple');
     $this->layout->set_titre('SLA | Paramètrages');
+	
     $this->load->model('m_configuration', 'configuration');
   }
 
@@ -18,14 +19,14 @@ class Parameters extends CI_Controller {
 
     //	Dependendy Injection
     $datas = array(
-      'configuration' => $this->configuration->getConfiguration('PERIOD')
+      'configuration' => $this->configuration->getProperty('PERIOD')
     );
 
     $this->layout->view('parameters/index', $datas);
   }
 
   public function recperiod() {
-    echo $this->configuration->setConfiguration($this->input->post());
+    echo $this->configuration->setProperty( $this->input->post() );
   }
 
 }

@@ -46,6 +46,7 @@ echo doctype('html5');
     <script src="<?php echo assets_url('plugins/jquery.blockui.min.js'); ?>" type="text/javascript"></script>  
     <script src="<?php echo assets_url('plugins/jquery.cookie.min.js'); ?>" type="text/javascript"></script>
     <script src="<?php echo assets_url('plugins/uniform/jquery.uniform.min.js'); ?>" type="text/javascript" ></script>
+    <script src="<?php echo assets_url('scripts/main.js'); ?>" type="text/javascript" ></script>
     <!-- Script -->
   </head>
   <!-- // Head -->
