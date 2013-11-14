@@ -37,7 +37,7 @@ do {
       if (isset($parts['query'])) {
         parse_str($parts['query'], $query);
       }
-      if (!isset($query['q']) && $query['q'] == ''):
+      if (!isset($query['q']) || $query['q'] == ''):
         $query['q'] = 'not provided';
       endif;
 
@@ -64,7 +64,7 @@ do {
       if (isset($parts['query'])) {
         parse_str($parts['query'], $query);
       }
-      if (!isset($query['q']) && $query['q'] == ''):
+      if (!isset($query['q']) || $query['q'] == ''):
         $query['q'] = 'not provided';
       endif;
 
