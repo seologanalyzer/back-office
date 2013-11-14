@@ -10,7 +10,7 @@
       <a href="<?php echo base_url() . 'mastering'; ?>">
         <i class="icon-file-text"></i>
         <span class="title">Web Mastering</span>
-      </a>					
+      </a>
     </li>
     <li <?php echo get_class_item('ranking'); ?>>
       <a href="<?php echo base_url() . 'ranking'; ?>">

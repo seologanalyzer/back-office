@@ -1,9 +1,11 @@
 <?php
 
-if (!defined('BASEPATH'))
+if (!defined('BASEPATH')) {
   exit('No direct script access allowed');
+}
 
 class Authentification extends CI_Controller {
+
   /*
     ======================================
     CONSTRUCTEUR

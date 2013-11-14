@@ -1,7 +1,8 @@
 <?php
 
-if (!defined('BASEPATH'))
+if (!defined('BASEPATH')) {
   exit('No direct script access allowed');
+}
 
 class Parameters extends CI_Controller {
 
@@ -19,7 +20,7 @@ class Parameters extends CI_Controller {
     $datas = array(
       'configuration' => $this->configuration->getConfiguration('PERIOD')
     );
-    
+
     $this->layout->view('parameters/index', $datas);
   }
 

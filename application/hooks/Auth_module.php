@@ -1,21 +1,24 @@
-<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php
+
+if(!defined('BASEPATH')) {
+  exit('No direct script access allowed');
+}
 
 
-class Auth_module
-{
+class Auth_module {
 
-	private $CI;
-	
-	
-	public function __construct()
-	{
-		$this->CI =& get_instance();
-	}
-	
-	public function set_auth()
-	{
-		$this->CI->load->model('m_authentification', 'authentification');
-	}
+  private $CI;
+
+
+  public function __construct()
+  {
+    $this->CI =& get_instance();
+  }
+
+  public function set_auth()
+  {
+    $this->CI->load->model('m_authentification', 'authentification');
+  }
 
 }
 
