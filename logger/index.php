@@ -20,26 +20,56 @@ do {
     //googlebot
     if (strpos($xpl[5], 'Googlebot') !== false):
 
-      $x = explode(' ', $data[6]);
-      $url = $data[5] . $x[1];
+      $x = explode(' ', $xpl[7]);
+      $url = utf8_decode(urldecode($xpl[6] . $x[1]));
 
-      mysql_query("INSERT INTO `sla_log_bot` VALUES (NULL, '" . $data[1] . "', '" . $data[2] . "',"
-              . " '" . $data[0] . "', '" . $url . "', '1', '" . date('Y-m-d H:i:s') . "')");
+      mysql_query("INSERT INTO `sla_log_bot` VALUES (NULL, '" . $xpl[1] . "',  '" . $xpl[3] . "', '" . $xpl[2] . "',"
+              . " '" . $xpl[0] . "', '" . $url . "', '1', '" . date('Y-m-d H:i:s') . "')");
 
     //googleuser
     elseif (strpos($xpl[4], 'google') !== false):
 
+      $x = explode(' ', $xpl[7]);
+      $url = utf8_decode(urldecode($xpl[6] . $x[1]));
+
+      //referer
+      $parts = parse_url($xpl[4]);
+      if (isset($parts['query'])) {
+        parse_str($parts['query'], $query);
+      }
+      if (!isset($query['q']) && $query['q'] == ''):
+        $query['q'] = 'not provided';
+      endif;
+
+      mysql_query("INSERT INTO `sla_log_user` VALUES (NULL, '" . $xpl[0] . "',  '" . $url . "', '1',"
+              . " '" . $query['q'] . "', '" . date('Y-m-d H:i:s') . "')");
+
     //bing
     elseif (strpos($xpl[5], 'bingbot') !== false):
 
-      $x = explode(' ', $data[6]);
-      $url = $data[5] . $x[1];
+      $x = explode(' ', $xpl[7]);
+      $url = utf8_decode(urldecode($xpl[6] . $x[1]));
 
-      mysql_query("INSERT INTO `sla_log_bot` VALUES (NULL, '" . $data[1] . "', '" . $data[2] . "',"
-              . " '" . $data[0] . "', '" . $url . "', '2', '" . date('Y-m-d H:i:s') . "')");
+      mysql_query("INSERT INTO `sla_log_bot` VALUES (NULL, '" . $xpl[1] . "',  '" . $xpl[3] . "', '" . $xpl[2] . "',"
+              . " '" . $xpl[0] . "', '" . $url . "', '2', '" . date('Y-m-d H:i:s') . "')");
 
     //binguser
     elseif (strpos($xpl[4], 'bing.com') !== false):
+
+      $x = explode(' ', $xpl[7]);
+      $url = utf8_decode(urldecode($xpl[6] . $x[1]));
+
+      //referer
+      $parts = parse_url($xpl[4]);
+      if (isset($parts['query'])) {
+        parse_str($parts['query'], $query);
+      }
+      if (!isset($query['q']) && $query['q'] == ''):
+        $query['q'] = 'not provided';
+      endif;
+
+      mysql_query("INSERT INTO `sla_log_user` VALUES (NULL, '" . $xpl[0] . "',  '" . $url . "', '2',"
+              . " '" . $query['q'] . "', '" . date('Y-m-d H:i:s') . "')");
 
     endif;
 
