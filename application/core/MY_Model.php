@@ -7,13 +7,33 @@ if(!defined('BASEPATH')) {
 // -----------------------------------------------------------------------------
 
 class MY_Model extends CI_Model {
-
+  
   /*
   ======================================
         FONCTIONS
   ======================================
   */
+  
+  public function getProperty($name) {
 
+    return $this->db->select('value')
+                    ->from($this->table)
+                    ->where('name', $name)
+                    ->get()
+                    ->row();
+  }
+
+  public function setProperty($post) {
+
+    $name = key($post);
+    $value = $post[$name];
+
+    $query = 'INSERT INTO `' . SLA_DB_PREFIX . $this->table . "` VALUES ('NULL', '" . $name . "', '" . $value . "')"
+            . "ON DUPLICATE KEY UPDATE value = '" . $value . "'";
+
+    return (bool) $this->db->query($query);
+  }
+  
   /**
    *  Insère une nouvelle ligne dans la base de données.
    *  + (array) escaped attributes
