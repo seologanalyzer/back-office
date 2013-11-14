@@ -10,9 +10,9 @@ mysql_select_db(SLA_DB_DATABASE);
 
 $fp = fopen("php://stdin", 'r');
 do {
-  //read a line from apache, if not, will block until have it  
+  //read a line from apache, if not, will block until have it
   $data = fgets($fp);
-  $data = trim($data); //remove line end  
+  $data = trim($data); //remove line end
 
   if (($data) !== '') {
 
@@ -46,7 +46,7 @@ do {
     mysql_query('INSERT INTO `sla_test` VALUES ("' . addslashes($data) . '")');
   }
 
-  //process the data  
+  //process the data
 } while (true);
 
 mysql_close($mysql);
