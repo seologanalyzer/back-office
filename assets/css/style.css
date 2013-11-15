@@ -5483,3 +5483,28 @@ div.loading {
   display: inline-block;
   margin-top:5px;
 }
+
+div.visual2 {
+	width: 70px;
+	height: 70px;
+	display: block;
+    float: left;
+    padding-left: 15px;
+    padding-top: 10px;
+}
+div.visual2 i {
+  font-size: 65px;
+  color: #fff;
+}
+
+div#date-server {
+	position: relative;
+	top: -25px;
+}
+div#date-server i {
+	color: white;
+}
+span#date-server-content{
+	font-size: 15px;
+	color: white;
+}
