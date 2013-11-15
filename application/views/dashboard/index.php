@@ -101,10 +101,10 @@
                     <i class="icon-medkit"></i>
                   </div>
                   <div class="details">
-                    <div class="number">20</div>
+                    <div class="number"><?php echo $fourofour['today']; ?></div>
                     <div class="desc">Pages 404 <br/> détectées </div>
                   </div>
-                  <a class="more" href="#">
+                  <a class="more" href="<?php echo base_url(); ?>mastering/responsecode404">
                     Voir le détail
                     <i class="m-icon-swapright m-icon-white"></i>
                   </a>
@@ -133,7 +133,7 @@
                     <i class="icon-bar-chart"></i>
                   </div>
                   <div class="details">
-                    <div class="number">23123</div>
+                    <div class="number"><?php echo($crawl_days[1]['value']); ?></div>
                     <div class="desc">Visites <br/> de GoogleBot </div>
                   </div>
                   <a class="more" href="#">
@@ -148,7 +148,7 @@
                     <i class="icon-bar-chart"></i>
                   </div>
                   <div class="details">
-                    <div class="number">11023</div>
+                    <div class="number"><?php echo($crawl_days[2]['value']); ?></div>
                     <div class="desc">Visites <br/> de BingBot </div>
                   </div>
                   <a class="more" href="#">
@@ -163,7 +163,7 @@
                     <i class="icon-dashboard"></i>
                   </div>
                   <div class="details">
-                    <div class="number">45,343ms</div>
+                    <div class="number"><?php echo number_format((($crawl_days[1]['loading_time'] + $crawl_days[2]['loading_time']) / 2)); ?>ms</div>
                     <div class="desc">Chargement <br/> moyen des pages </div>
                   </div>
                   <a class="more" href="#">
@@ -178,10 +178,10 @@
                     <i class="icon-medkit"></i>
                   </div>
                   <div class="details">
-                    <div class="number">240</div>
+                    <div class="number"><?php echo $fourofour['30days']; ?></div>
                     <div class="desc">Pages 404 <br/> détectées </div>
                   </div>
-                  <a class="more" href="#">
+                  <a class="more" href="<?php echo base_url(); ?>mastering/responsecode404">
                     Voir le détail
                     <i class="m-icon-swapright m-icon-white"></i>
                   </a>

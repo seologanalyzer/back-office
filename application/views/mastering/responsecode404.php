@@ -91,7 +91,7 @@
             <tr>
               <th>Page</th>
               <th>Nb d'accès</th>
-              <th>Dernier accès</th>
+              <th>Premier accès</th>
               <th></th>
             </tr>
           </thead>
