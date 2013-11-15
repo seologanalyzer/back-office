@@ -18,6 +18,7 @@ class Dashboard extends CI_Controller {
     $this->layout->set_titre('SLA | Tableau de bord');
 
     $this->load->model('m_configuration', 'configuration');
+    $this->load->model('m_crawl_day', 'crawl_day');
   }
 
   /*
@@ -27,9 +28,16 @@ class Dashboard extends CI_Controller {
    */
 
   public function index() {
+    
+    $crawlday = $this->crawl_day->get(array('value', 'loading_time', 'id_bot'), array('date' => date('Y-m-d')));
+    foreach($crawlday as $bot)
+      $crawl_day[$bot->id_bot] = $bot;
+    
     $datas = array(
-      'configuration' => $this->configuration->getProperty('LAST_ANALYSIS')
+      'configuration' => $this->configuration->getProperty('LAST_ANALYSIS'),
+      'crawl_day' => $crawl_day
     );
+    
     $this->layout->view('dashboard/index', $datas);
   }
 
