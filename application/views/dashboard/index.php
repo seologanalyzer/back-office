@@ -31,7 +31,7 @@
 <!-- b -->
 <div class="portlet box blue">
   <div class="portlet-title">
-    <div class="caption"><i class="icon-reorder"></i>Statistiques des logs</div>
+    <div class="caption"><i class="icon-bar-chart"></i>Statistiques des logs</div>
     <div class="tools">
       <a class="collapse" href="javascript:;"></a>
     </div>
@@ -197,7 +197,7 @@
 </div>
 <div class="portlet box red">
   <div class="portlet-title">
-    <div class="caption"><i class="icon-reorder"></i>Temps réel</div>
+    <div class="caption"><i class="icon-signal "></i>Temps réel</div>
     <div class="tools">
       <a class="collapse" href="javascript:;"></a>
     </div>

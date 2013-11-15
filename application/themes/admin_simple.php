@@ -48,6 +48,7 @@ echo doctype('html5');
     <script src="<?php echo assets_url('plugins/uniform/jquery.uniform.min.js'); ?>" type="text/javascript" ></script>
     <script src="<?php echo assets_url('scripts/main.js'); ?>" type="text/javascript" ></script>
     <!-- Script -->
+    <link rel="shortcut icon" href="<?php echo assets_url('img/favicon.png'); ?>" />
   </head>
   <!-- // Head -->
 
@@ -63,7 +64,14 @@ echo doctype('html5');
           <div class="sidebar-toggler hidden-phone"></div>
           <a href="javascript:;" class="btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse">
             <?php echo img('menu-toggler.png'); ?>
-          </a>          
+          </a>
+		  <ul class="nav pull-right">
+			<!-- Module : date server -->
+			<li>
+				<?php $this->load->view('modules/date_server'); ?>
+			</li>
+			<!-- // Modal : date server -->
+		  </ul>
         </div>
       </div>
     </div>
@@ -72,7 +80,7 @@ echo doctype('html5');
     <!-- Wrapper -->   
     <div class="page-container row-fluid">
       <!-- Menu -->
-      <?php $this->load->view('menu'); ?>
+      <?php $this->load->view('modules/menu'); ?>
       <!-- // Menu -->
 
       <!-- Conteneur -->
