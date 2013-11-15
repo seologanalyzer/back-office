@@ -164,7 +164,7 @@ class MY_Model extends CI_Model {
    *   > chacun des arguments peuvent être nuls
    */
 
-  public function list_elements($limit = null, $offset = null, $order_by = null, $select = '*', $where = null) {
+  public function list_elements($limit = null, $offset = null, $order_by = null, $select = '*', $where = null, $group_by = null) {
 
     $this->db->select($select);
 
@@ -177,13 +177,17 @@ class MY_Model extends CI_Model {
     if (!empty($order_by)) {
       $this->db->order_by($order_by);
     }
-
+    
+    if(!empty($group_by)){
+      $this->db->group_by($group_by);
+    }
+    
     if (!empty($limit) && !empty($offset)) {
       $this->db->limit($limit, $offset);
     } else if (!empty($limit) && empty($offset)) {
       $this->db->limit($limit);
     }
-
+    
     return $this->db->get()
                     ->result();
   }

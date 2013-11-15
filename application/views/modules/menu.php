@@ -11,6 +11,11 @@
         <i class="icon-file-text"></i>
         <span class="title">Web Mastering</span>
       </a>
+      <ul class="sub-menu">
+        <li <?php echo get_class_item('mastering/responsecode404'); ?>>
+          <a href="<?php echo base_url() . 'mastering/responsecode404'; ?>">Codes réponses 404</a>
+        </li>
+      </ul>
     </li>
     <li <?php echo get_class_item('ranking'); ?>>
       <a href="<?php echo base_url() . 'ranking'; ?>">
