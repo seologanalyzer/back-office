@@ -11,19 +11,24 @@ class Service extends CI_Controller {
     $this->load->model('m_log_bot', 'log_bot');
   }
 
-  public function realtimegoogle() {
+  public function realtime() {
     
     $time = new DateTime();
     $start_time = $time->format('Y-m-d H:i:s');
-    $time->modify('-2 seconds');
+    $time->modify('-5 seconds');
     $end_time = $time->format('Y-m-d H:i:s');
     
-//    echo $this->log_bot->count(array('date >=' => $start_time,
-//      'date <=' => $end_time,
-//      'id_bot' => 1));
+    $google = $this->log_bot->count(array('date <=' => $start_time,
+      'date >=' => $end_time,
+      'id_bot' => '1'));
     
-    echo '{"cpu":47, "core":11, "disk":550}';
+    $bing = $this->log_bot->count(array('date <=' => $start_time,
+      'date >=' => $end_time,
+      'id_bot' => '2'));
+    
+    echo '{"gg":'.(int)$google.', "bg":'.(int)$bing.'}';
   }
+
 
 }
 

@@ -66,7 +66,7 @@
                 </div>
               </div>
               <div class="span3 responsive" data-desktop="span3" data-tablet="span6">
-                <div class="dashboard-stat purple">
+                <div class="dashboard-stat yellow">
                   <div class="visual2">
                     <i class="icon-bar-chart"></i>
                   </div>
@@ -81,7 +81,7 @@
                 </div>
               </div>
               <div class="span3 responsive" data-desktop="span3" data-tablet="span6">
-                <div class="dashboard-stat yellow">
+                <div class="dashboard-stat purple">
                   <div class="visual2">
                     <i class="icon-dashboard"></i>
                   </div>
@@ -143,7 +143,7 @@
                 </div>
               </div>
               <div class="span3 responsive" data-desktop="span3" data-tablet="span6">
-                <div class="dashboard-stat purple">
+                <div class="dashboard-stat yellow">
                   <div class="visual2">
                     <i class="icon-bar-chart"></i>
                   </div>
@@ -158,7 +158,7 @@
                 </div>
               </div>
               <div class="span3 responsive" data-desktop="span3" data-tablet="span6">
-                <div class="dashboard-stat yellow">
+                <div class="dashboard-stat purple">
                   <div class="visual2">
                     <i class="icon-dashboard"></i>
                   </div>
@@ -202,9 +202,9 @@
       <a class="collapse" href="javascript:;"></a>
     </div>
   </div>
-  <div class="portlet-body" style="display: block;">
-    <div id="load_statistics_content" class="span6">
-      <div id="load_statistics" style="height:108px;"></div>
+  <div class="portlet-body" style="display: block; min-height:250px;">
+    <div id="load_statistics_content" class="span12">
+      <div id="load_statistics" style="height:250px;"></div>
     </div>
   </div>
 </div>
@@ -212,6 +212,7 @@
 
 <script src="<?php echo assets_url('plugins/flot/jquery.flot.js'); ?>" type="text/javascript"></script>
 <script src="<?php echo assets_url('plugins/flot/jquery.flot.resize.js'); ?>" type="text/javascript"></script>
+<script src="<?php echo assets_url('plugins/flot/jquery.flot.time.js'); ?>" type="text/javascript"></script>
 <script>
   //Form : analysis
   listenerSubmit('form-analysis', 'launchAnalysis');
@@ -231,53 +232,147 @@
     );
   }
 
-  var temp;
+//googlebot
 
-  function update(_data) {
-    //remove first item of array
-    cpu.shift();
-    cpuCore.shift();
-    disk.shift();
+  $(function() {
+    var gg = [], bg = [];
+    var dataset;
+    var totalPoints = 100;
+    var updateInterval = 5000;
+    var now = new Date(<?php echo date('Y'); ?>, <?php echo date('m'); ?>, <?php echo date('d'); ?>, <?php echo date('H'); ?>, <?php echo date('i'); ?>, <?php echo date('s'); ?>).getTime();
+    var options = {
+      series: {
+        lines: {
+          lineWidth: 1.2
+        },
+        bars: {
+          align: "center",
+          fillColor: {
+            colors: [{
+                opacity: 1
+              }, {
+                opacity: 1
+              }]
+          },
+          barWidth: 500,
+          lineWidth: 1
+        }
+      },
+      xaxis: {
+        mode: "time",
+        tickSize: [60, "second"],
+        tickFormatter: function(v, axis) {
+          v = v - 540000;
+          var date = new Date(v);
 
-    now += updateInterval
+          if (date.getSeconds() % 20 == 0) {
+            var hours = date.getHours() < 10 ? "0" + date.getHours() : date.getHours();
+            var minutes = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
+            var seconds = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
 
-    //add the data retrieve from backend to array
-    temp = [now, _data.cpu];
-    cpu.push(temp);
-
-    temp = [now, _data.core];
-    cpuCore.push(temp);
-
-    temp = [now, _data.disk];
-    disk.push(temp);
-
-    //update legend label so users can see the latest value in the legend
-    dataset = [
-      {label: "CPU:" + _data.cpu + "%", data: cpu, lines: {fill: true, lineWidth: 1.2}, color: "#00FF00"},
-      {label: "Disk:" + _data.disk + "KB", data: disk, color: "#0044FF", bars: {show: true}, yaxis: 2},
-      {label: "CPU Core:" + _data.core + "%", data: cpuCore, lines: {lineWidth: 1.2}, color: "#FF0000"}
-    ];
-
-    //redraw the chart
-    $.plot($("#flot-placeholder1"), dataset, options);
-
-    //prepare for next update
-    setTimeout(GetData, updateInterval);
-  }
-
-  function GetData() {
-    //set no cache
-    $.ajaxSetup({cache: false});
-
-    $.ajax({
-      url: "<?php echo base_url(); ?>service/realtimegoogle",
-      dataType: 'json',
-      success: update, //if success, call update()
-      error: function() {
-        //if fail, prepare next update
-        setTimeout(GetData, updateInterval);
+            return hours + ":" + minutes + ":" + seconds;
+          } else {
+            return "";
+          }
+        },
+        axisLabel: "Time",
+        axisLabelUseCanvas: true,
+        axisLabelFontSizePixels: 12,
+        axisLabelFontFamily: 'Verdana, Arial',
+        axisLabelPadding: 10
+      },
+      yaxes: [{
+          min: 0,
+          tickSize: 2,
+          axisLabel: "Pages Crawlées",
+          axisLabelUseCanvas: true,
+          axisLabelFontSizePixels: 12,
+          axisLabelFontFamily: 'Verdana, Arial',
+          axisLabelPadding: 6
+        }],
+      legend: {
+        noColumns: 0,
+        position: "nw"
       }
-    });
-  }
+    };
 
+    function initData() {
+      for (var i = 0; i < totalPoints; i++) {
+        var temp = [now += updateInterval, 0];
+
+        gg.push(temp);
+        bg.push(temp);
+      }
+    }
+
+    function GetData() {
+      $.ajaxSetup({
+        cache: false
+      });
+
+      $.ajax({
+        url: "<?php echo base_url(); ?>service/realtime",
+        dataType: 'json',
+        success: update,
+        error: function() {
+          setTimeout(GetData, updateInterval);
+        }
+      });
+    }
+
+    var temp;
+
+    function update(_data) {
+      gg.shift();
+      bg.shift();
+      now += updateInterval
+
+      temp = [now, _data.gg];
+      gg.push(temp);
+
+      temp = [now, _data.bg];
+      bg.push(temp);
+
+      dataset = [{
+          label: "Pages crawlées par GoogleBot :" + _data.gg,
+          data: gg,
+          lines: {
+            fill: true,
+            lineWidth: 1.2
+          },
+          color: "#27A9E3"
+        },
+        {label: "Pages crawlées par BingBot :" + _data.bg,
+          data: bg,
+          lines: {lineWidth: 1.2},
+          color: "#FFB848"
+        }
+      ];
+
+      $.plot($("#load_statistics"), dataset, options);
+      setTimeout(GetData, updateInterval);
+    }
+
+
+    $(document).ready(function() {
+      initData();
+      dataset = [{
+          label: "Pages crawlées par GoogleBot",
+          data: gg,
+          lines: {
+            fill: true,
+            lineWidth: 1.2
+          },
+          color: "#27A9E3"
+        },
+        {label: "Pages crawlées par BingBot ",
+          data: bg,
+          lines: {lineWidth: 1.2},
+          color: "#FFB848"
+        }];
+
+      $.plot($("#load_statistics"), dataset, options);
+      setTimeout(GetData, updateInterval);
+    });
+  });
 </script>
