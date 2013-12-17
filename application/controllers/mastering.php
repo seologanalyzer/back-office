@@ -144,6 +144,43 @@ class Mastering extends CI_Controller {
     $this->layout->view('mastering/responsecode', $datas);
   }
 
+  public function loadingtime() {
+    $this->load->model('m_crawl_day', 'crawl_day');
+    $this->load->model('m_crawl_hour', 'crawl_hour');
+
+    $bots = array('1', '2');
+    $loadtotal = array();
+
+    foreach ($bots as $id_bot):
+      $logs = $this->crawl_day->list_elements(null, null, 'date DESC', $select = 'loading_time, date', 'id_bot = "' . $id_bot . '" ', '');
+
+      $date2 = array();
+      foreach ($logs as $log):
+        $date2[$log->date] = $log->loading_time;
+      endforeach;
+
+      $sum = 0;
+
+      $fn = array();
+      $today = new Datetime();
+      for ($i = 0; $i < 30; $i++):
+        $fn[$today->format('Y-m-d')] = (int) @$date2[$today->format('Y-m-d')];
+        $today->modify('-1 day');
+        $sum += (int) @$date2[$today->format('Y-m-d')];
+      endfor;
+
+      $loadtotal[$id_bot] = (int) ($sum / 30);
+      $loadtime[$id_bot] = $fn;
+
+      $loadhour[$id_bot] = $this->crawl_hour->list_elements(null, null, 'date DESC', $select = 'AVG(loading_time) as loading_time, hour', 'id_bot = "' . $id_bot . '" ', 'hour');
+            
+    endforeach;
+
+    $datas = array('loadtime' => $loadtime, 'loadtotal' => $loadtotal, 'loadhour' => $loadhour);
+
+    $this->layout->view('mastering/loadingtime', $datas);
+  }
+
 }
 
 /* End of file mastering.php */

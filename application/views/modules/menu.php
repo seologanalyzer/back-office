@@ -12,6 +12,9 @@
         <span class="title">Web Mastering</span>
       </a>
       <ul class="sub-menu">
+        <li <?php echo get_class_item('mastering/loadingtime'); ?>>
+          <a href="<?php echo base_url() . 'mastering/loadingtime'; ?>">Temps de chargement</a>
+        </li>
         <li <?php echo get_class_item('mastering/responsecode'); ?>>
           <a href="<?php echo base_url() . 'mastering/responsecode'; ?>">Codes réponses</a>
         </li>
