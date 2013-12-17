@@ -90,12 +90,58 @@ class Mastering extends CI_Controller {
   }
 
   public function responsecode() {
-    $this->load->model('m_log_bot', 'log_bot');
-   
-    $datas = array('pages' => 'test');
-    
+    $this->load->model('m_code_response', 'code_response');
+
+    $bots = array('1', '2');
+
+    $date = new DateTime();
+    $date->modify('-30 days');
+
+    foreach ($bots as $id_bot):
+
+      $sum = array();
+      $codes = $this->code_response->list_elements(null, null, null, $select = 'SUM( value ) AS value, code', 'date >= "' . $date->format('Y-m-d') . ' " AND id_bot = "' . $id_bot . '" ', 'code');
+      foreach ($codes as $k => $code):
+        @$sum[$code->code] += $code->value;
+        @$sum['all'] += $code->value;
+      endforeach;
+
+      $resume[$id_bot]['30days'] = $sum;
+
+      $sum = array();
+      $codes = $this->code_response->list_elements(null, null, null, $select = 'SUM( value ) AS value, code', 'date = "' . date('Y-m-d') . ' " AND id_bot = "' . $id_bot . '" ', 'code');
+      foreach ($codes as $k => $code):
+        @$sum[$code->code] += $code->value;
+        @$sum['all'] += $code->value;
+      endforeach;
+
+      $resume[$id_bot]['today'] = $sum;
+
+      //for graphs
+      $logs = $this->code_response->list_elements(null, null, 'date DESC', $select = 'SUM( value ) AS value, code, date', 'id_bot = "' . $id_bot . '" ', 'date, code');
+
+      $date2 = array();
+      foreach ($logs as $log):
+        $date2[$log->date][$log->code] = $log->value;
+      endforeach;
+
+      $fn = array();
+      $today = new Datetime();
+      for ($i = 0; $i < 30; $i++):
+        $fn[$today->format('Y-m-d')]['200'] = @$date2[$today->format('Y-m-d')]['200'];
+        $fn[$today->format('Y-m-d')]['301'] = @$date2[$today->format('Y-m-d')]['301'];
+        $fn[$today->format('Y-m-d')]['302'] = @$date2[$today->format('Y-m-d')]['302'];
+        $fn[$today->format('Y-m-d')]['404'] = @$date2[$today->format('Y-m-d')]['404'];
+        $today->modify('-1 day');
+      endfor;
+
+      $graph[$id_bot] = $fn;
+
+    endforeach;
+
+    $datas = array('resume' => $resume, 'graph' => $graph);
+
     $this->layout->view('mastering/responsecode', $datas);
-    
   }
 
 }

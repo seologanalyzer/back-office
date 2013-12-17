@@ -3,17 +3,17 @@
 if (!defined('BASEPATH'))
   exit('No direct script access allowed');
 
-class M_log_bot extends MY_Model {
+class M_code_response extends MY_Model {
   /*
     ======================================
     CHAMPS
     ======================================
    */
   /*
-   * 	Table : log_bot
+   * 	Table : code_response
    */
 
-  protected $table = "log_bot";
+  protected $table = "code_response";
 
   /*
     ======================================
@@ -22,5 +22,5 @@ class M_log_bot extends MY_Model {
    */
 }
 
-/* End of file m_log_bot.php */
-/* Location: ./application/models/m_log_bot.php */
+/* End of file m_code_response.php */
+/* Location: ./application/models/m_code_response.php */

@@ -17,7 +17,7 @@
       </div>
     </div>
   </div>
-  <div class="span3 responsive" data-desktop="span3" data-tablet="span6">
+  <div class="span3 responsive" data-desktop="span3" data-tablet="span3">
     <div class="dashboard-stat red">
       <div class="visual2">
         <i class="icon-medkit"></i>
@@ -31,7 +31,7 @@
       </a>
     </div>
   </div>
-  <div class="span3 responsive" data-desktop="span3" data-tablet="span6">
+  <div class="span3 responsive" data-desktop="span3" data-tablet="span3">
     <div class="dashboard-stat red">
       <div class="visual2">
         <i class="icon-medkit"></i>
@@ -45,7 +45,7 @@
       </a>
     </div>
   </div>
-  <div class="span3 responsive" data-desktop="span3" data-tablet="span6">
+  <div class="span3 responsive" data-desktop="span3" data-tablet="span3">
     <div class="dashboard-stat red">
       <div class="visual2">
         <i class="icon-medkit"></i>
@@ -59,7 +59,7 @@
       </a>
     </div>
   </div>
-  <div class="span3 responsive" data-desktop="span3" data-tablet="span6">
+  <div class="span3 responsive" data-desktop="span3" data-tablet="span3">
     <div class="dashboard-stat red">
       <div class="visual2">
         <i class="icon-medkit"></i>

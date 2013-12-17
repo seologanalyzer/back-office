@@ -50,7 +50,7 @@
           <div class="accordion-inner">
             <!-- contenu accordéon : aujourd'hui -->
             <div class="row-fluid">
-              <div class="span3 responsive" data-desktop="span3" data-tablet="span6">
+              <div class="span3 responsive" data-desktop="span3" data-tablet="span3">
                 <div class="dashboard-stat blue">
                   <div class="visual2">
                     <i class="icon-bar-chart"></i>
@@ -65,7 +65,7 @@
                   </a>
                 </div>
               </div>
-              <div class="span3 responsive" data-desktop="span3" data-tablet="span6">
+              <div class="span3 responsive" data-desktop="span3" data-tablet="span3">
                 <div class="dashboard-stat yellow">
                   <div class="visual2">
                     <i class="icon-bar-chart"></i>
@@ -80,7 +80,7 @@
                   </a>
                 </div>
               </div>
-              <div class="span3 responsive" data-desktop="span3" data-tablet="span6">
+              <div class="span3 responsive" data-desktop="span3" data-tablet="span3">
                 <div class="dashboard-stat purple">
                   <div class="visual2">
                     <i class="icon-dashboard"></i>
@@ -95,7 +95,7 @@
                   </a>
                 </div>
               </div>
-              <div class="span3 responsive" data-desktop="span3" data-tablet="span6">
+              <div class="span3 responsive" data-desktop="span3" data-tablet="span3">
                 <div class="dashboard-stat red">
                   <div class="visual2">
                     <i class="icon-medkit"></i>
@@ -127,7 +127,7 @@
           <div class="accordion-inner">
             <!-- contenu accordéon : 30 derniers jours -->
             <div class="row-fluid">
-              <div class="span3 responsive" data-desktop="span3" data-tablet="span6">
+              <div class="span3 responsive" data-desktop="span3" data-tablet="span3">
                 <div class="dashboard-stat blue">
                   <div class="visual2">
                     <i class="icon-bar-chart"></i>
@@ -142,7 +142,7 @@
                   </a>
                 </div>
               </div>
-              <div class="span3 responsive" data-desktop="span3" data-tablet="span6">
+              <div class="span3 responsive" data-desktop="span3" data-tablet="span3">
                 <div class="dashboard-stat yellow">
                   <div class="visual2">
                     <i class="icon-bar-chart"></i>
@@ -157,7 +157,7 @@
                   </a>
                 </div>
               </div>
-              <div class="span3 responsive" data-desktop="span3" data-tablet="span6">
+              <div class="span3 responsive" data-desktop="span3" data-tablet="span3">
                 <div class="dashboard-stat purple">
                   <div class="visual2">
                     <i class="icon-dashboard"></i>
@@ -172,7 +172,7 @@
                   </a>
                 </div>
               </div>
-              <div class="span3 responsive" data-desktop="span3" data-tablet="span6">
+              <div class="span3 responsive" data-desktop="span3" data-tablet="span3">
                 <div class="dashboard-stat red">
                   <div class="visual2">
                     <i class="icon-medkit"></i>

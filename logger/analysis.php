@@ -49,10 +49,21 @@ while ($date->format('Y-m-d') <= date('Y-m-d')):
               . "('" . $value . "', '" . $bot . "', '" . $date->format('Y-m-d') . "', '" . $hour . "', '" . $t . "') ");
     endforeach;
 
+    //code response
+    $query = mysql_query("SELECT count(id_log_bot) as value, code_response FROM `" . SLA_DB_PREFIX . "log_bot` "
+            . "WHERE date LIKE '%" . $date->format('Y-m-d') . "%'"
+            . " AND id_bot = '" . $bot . "' GROUP BY code_response");
+
+    while ($z = mysql_fetch_row($query)) {
+      mysql_query("REPLACE INTO `" . SLA_DB_PREFIX . "code_response`"
+              . " (value, id_bot, date, code) VALUES "
+              . "('" . $z[0] . "', '" . $bot . "', '" . $date->format('Y-m-d') . "', '" . $z[1] . "') ");
+    }
+
   endforeach;
-  
+
   $date->modify('+1 day');
-  
+
 endwhile;
 
 //update configuration
