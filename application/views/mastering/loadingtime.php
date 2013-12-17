@@ -19,10 +19,10 @@
   <div class="span3 responsive" data-desktop="span3" data-tablet="span3">
     <div class="dashboard-stat blue">
       <div class="visual2">
-        <i class="icon-medkit"></i>
+        <i class="icon-dashboard"></i>
       </div>
       <div class="details">
-        <div class="number"><?php echo (int) $loadtotal[1]; ?> ms </div>
+        <div class="number"><?php echo (int) $loadtotal[1]; ?> µs </div>
         <div class="desc">Chargement <br/> moyen </div>
       </div>
       <a class="more" href="#">
@@ -33,10 +33,10 @@
   <div class="span3 responsive" data-desktop="span3" data-tablet="span3">
     <div class="dashboard-stat blue">
       <div class="visual2">
-        <i class="icon-medkit"></i>
+        <i class="icon-dashboard"></i>
       </div>
       <div class="details">
-        <div class="number"><?php echo (int) $loadtime[1][date('Y-m-d')]; ?> ms </div>
+        <div class="number"><?php echo (int) $loadtime[1][date('Y-m-d')]; ?> µs </div>
         <div class="desc">Chargement <br/> moyen </div>
       </div>
       <a class="more" href="#">
@@ -84,10 +84,10 @@
   <div class="span3 responsive" data-desktop="span3" data-tablet="span3">
     <div class="dashboard-stat purple">
       <div class="visual2">
-        <i class="icon-medkit"></i>
+        <i class="icon-dashboard"></i>
       </div>
       <div class="details">
-        <div class="number"><?php echo (int) $loadtotal[2]; ?> ms </div>
+        <div class="number"><?php echo (int) $loadtotal[2]; ?> µs </div>
         <div class="desc">Chargement <br/> moyen </div>
       </div>
       <a class="more" href="#">
@@ -98,10 +98,10 @@
   <div class="span3 responsive" data-desktop="span3" data-tablet="span3">
     <div class="dashboard-stat purple">
       <div class="visual2">
-        <i class="icon-medkit"></i>
+        <i class="icon-dashboard"></i>
       </div>
       <div class="details">
-        <div class="number"><?php echo (int) $loadtime[2][date('Y-m-d')]; ?> ms </div>
+        <div class="number"><?php echo (int) $loadtime[2][date('Y-m-d')]; ?> µs </div>
         <div class="desc">Chargement <br/> moyen </div>
       </div>
       <a class="more" href="#">
@@ -141,7 +141,7 @@
 
     var plot = $.plot($("#charts"), [{
         data: pageviews,
-        label: "Temps de chargement (ms)"
+        label: "Temps de chargement (µs)"
       }
     ], {
       series: {
@@ -236,7 +236,7 @@
 
     var plot = $.plot($("#charts_hour"), [{
         data: ticks,
-        label: "Temps de chargement (ms)",
+        label: "Temps de chargement (µs)",
         color: '#27A9E3'
       }
     ], {
@@ -313,7 +313,7 @@
 
     var plot = $.plot($("#charts_bing"), [{
         data: pageviews,
-        label: "Temps de chargement (ms)"
+        label: "Temps de chargement (µs)"
       }
     ], {
       series: {
@@ -409,7 +409,7 @@
 
     var plot = $.plot($("#charts_hour_bing"), [{
         data: ticks,
-        label: "Temps de chargement (ms)",
+        label: "Temps de chargement (µs)",
         color: '#852b99'
       }
     ], {
