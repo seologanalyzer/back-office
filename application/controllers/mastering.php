@@ -173,12 +173,27 @@ class Mastering extends CI_Controller {
       $loadtime[$id_bot] = $fn;
 
       $loadhour[$id_bot] = $this->crawl_hour->list_elements(null, null, 'date DESC', $select = 'AVG(loading_time) as loading_time, hour', 'id_bot = "' . $id_bot . '" ', 'hour');
-            
+
     endforeach;
 
     $datas = array('loadtime' => $loadtime, 'loadtotal' => $loadtotal, 'loadhour' => $loadhour);
 
     $this->layout->view('mastering/loadingtime', $datas);
+  }
+
+  public function keywords() {
+    $this->load->model('m_log_user', 'log_user');
+    
+    $bots = array('1', '2');
+    
+    foreach ($bots as $id_bot):
+      $logs = $this->log_user->list_elements(null, null, null, $select = 'count(id_log_user) as nb, page, keyword, date', 'id_bot = "' . $id_bot . '" ', 'keyword');
+      $keywords[$id_bot] = $logs;
+    endforeach;
+    
+    $datas = array('keywords' => $keywords);
+     
+    $this->layout->view('mastering/keywords', $datas);
   }
 
 }

@@ -20,7 +20,10 @@
         </li>
         <li <?php echo get_class_item('mastering/responsecode404'); ?>>
           <a href="<?php echo base_url() . 'mastering/responsecode404'; ?>">Codes réponses 404</a>
-        </li> 
+        </li>
+        <li <?php echo get_class_item('mastering/keywords'); ?>>
+          <a href="<?php echo base_url() . 'mastering/keywords'; ?>">Mots clés</a>
+        </li>
       </ul>
     </li>
     <li <?php echo get_class_item('ranking'); ?>>
