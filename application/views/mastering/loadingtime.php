@@ -158,58 +158,48 @@
   }
   chart2();
   function chart2bis() {
-    var pageviews = [
+    
+    var legend = [
+      <?php for($i=0;$i<24;$i++){ echo "[".$i.",'".$i."h'], ";} ?>
+    ];
+    
+    var ticks = [
 <?php foreach ($loadhour[1] as $value): ?>
-        [<?php echo $value->hour; ?>, <?php echo $value->loading_time; ?>],
+        [<?php echo $value->hour; ?>, <?php echo (int) $value->loading_time; ?>],
 <?php endforeach; ?>
     ];
 
     var plot = $.plot($("#charts_hour"), [{
-        data: pageviews,
-        label: "Temps de chargement (ms)"
+        data: ticks,
+        label: "Temps de chargement (ms)",
+        color: '#27A9E3'
       }
     ], {
       series: {
-        lines: {
-          show: true,
-          lineWidth: 2,
-          fill: true,
-          fillColor: {
-            colors: [{
-                opacity: 0.05
-              }, {
-                opacity: 0.01
-              }
-            ]
-          }
-        },
-        points: {
+        bars: {
           show: true
-        },
-        shadowSize: 2
+        }
       },
-      grid: {
-        hoverable: true,
-        clickable: true,
-        tickColor: "#eee",
-        borderWidth: 0
+      bars: {
+        align: "center",
+        barWidth: 0.5
       },
-      colors: ["#37b7f3", "#d12610", "#52e136"],
       xaxis: {
-        mode: "time",
-        tickLength: 5
+        axisLabelFontFamily: 'Verdana, Arial',
+        axisLabelPadding: 10,
+        ticks: legend
+
       },
       yaxis: {
-        ticks: 11,
-        tickDecimals: 0
+        axisLabelFontFamily: 'Verdana, Arial',
+        axisLabelPadding: 3,
+        min: 0
       },
       legend: {
         noColumns: 0,
         position: "nw"
       }
     });
-
-
     function showTooltip(x, y, contents) {
       $('<div id="tooltip">' + contents + '</div>').css({
         position: 'absolute',
@@ -246,4 +236,5 @@
       }
     });
   }
+  chart2bis();
 </script>
