@@ -26,20 +26,20 @@
         </li>
       </ul>
     </li>
-    <li <?php echo get_class_item('analysis'); ?>>
-      <a href="<?php echo base_url() . 'analysis'; ?>">
+    <li <?php echo get_class_item('ranking'); ?>>
+      <a href="<?php echo base_url() . 'ranking'; ?>">
         <i class="icon-bar-chart"></i>
         <span class="title">Web Ranking</span>
       </a>
       <ul class="sub-menu">
-        <li <?php echo get_class_item('analysis/add'); ?>>
-          <a href="<?php echo base_url() . 'analysis/add'; ?>">Ajouter un mot clé</a>
+        <li <?php echo get_class_item('ranking/addkeyword'); ?>>
+          <a href="<?php echo base_url() . 'ranking/addkeyword'; ?>">Ajouter un mot clé</a>
         </li>
-        <li <?php echo get_class_item('analysis/waiting'); ?>>
-          <a href="<?php echo base_url() . 'analysis/waiting'; ?>">Mots clés en cours</a>
+        <li <?php echo get_class_item('ranking/waiting'); ?>>
+          <a href="<?php echo base_url() . 'ranking/waiting'; ?>">Mots clés en cours</a>
         </li>
-        <li <?php echo get_class_item('analysis/done'); ?>>
-          <a href="<?php echo base_url() . 'analysis/done'; ?>">Mots clés terminés</a>
+        <li <?php echo get_class_item('ranking/done'); ?>>
+          <a href="<?php echo base_url() . 'ranking/done'; ?>">Mots clés terminés</a>
         </li>
       </ul>
     </li>

@@ -13,6 +13,12 @@
         <div class="span2"></div>
         <div class="span9"></div>
         <div class="span2">
+          <p style="float:right;">Url du site :</p>
+        </div>
+        <div class="span9">
+          <input type="text" name="url" placeholder="ex: www.monsite.com (sans http://)" class="span5" value="<?php echo $_SERVER['HTTP_HOST']; ?>" />
+        </div>
+        <div class="span2">
           <p style="float:right;">Site Google :</p>
         </div>
         <div class="span9">
@@ -43,4 +49,3 @@
     </form>
   </div>
 </div>
-bon

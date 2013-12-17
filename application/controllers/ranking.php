@@ -31,6 +31,11 @@ class Ranking extends CI_Controller {
   {
     $this->layout->view('view_example');
   }
+  
+    public function addkeyword() {
+
+    $this->layout->view('analysis/add');
+  }
 
 }
 /* End of file ranking.php */
