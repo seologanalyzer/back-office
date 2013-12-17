@@ -59,7 +59,7 @@
                     <div class="number"><?php echo((int)@$crawl_day[1]->value); ?></div>
                     <div class="desc">Visites <br/> de GoogleBot </div>
                   </div>
-                  <a class="more" href="#">
+                  <a class="more" href="<?php echo base_url() . 'mastering/responsecode'; ?>">
                     Voir le détail
                     <i class="m-icon-swapright m-icon-white"></i>
                   </a>
@@ -74,7 +74,7 @@
                     <div class="number"><?php echo((int)@$crawl_day[2]->value); ?></div>
                     <div class="desc">Visites <br/> de BingBot </div>
                   </div>
-                  <a class="more" href="#">
+                  <a class="more" href="<?php echo base_url() . 'mastering/responsecode'; ?>">
                     Voir le détail
                     <i class="m-icon-swapright m-icon-white"></i>
                   </a>
@@ -89,7 +89,7 @@
                     <div class="number"><?php echo number_format((((int)@$crawl_day[1]->loading_time + (int)@$crawl_day[2]->loading_time) / 2)); ?>ms</div>
                     <div class="desc">Chargement <br/> moyen des pages </div>
                   </div>
-                  <a class="more" href="#">
+                  <a class="more" href="<?php echo base_url() . 'mastering/loadingtime'; ?>">
                     Voir le détail
                     <i class="m-icon-swapright m-icon-white"></i>
                   </a>
@@ -136,7 +136,7 @@
                     <div class="number"><?php echo((int)@$crawl_days[1]['value']); ?></div>
                     <div class="desc">Visites <br/> de GoogleBot </div>
                   </div>
-                  <a class="more" href="#">
+                  <a class="more" href="<?php echo base_url() . 'mastering/responsecode'; ?>">
                     Voir le détail
                     <i class="m-icon-swapright m-icon-white"></i>
                   </a>
@@ -151,7 +151,7 @@
                     <div class="number"><?php echo((int)@$crawl_days[2]['value']); ?></div>
                     <div class="desc">Visites <br/> de BingBot </div>
                   </div>
-                  <a class="more" href="#">
+                  <a class="more" href="<?php echo base_url() . 'mastering/responsecode'; ?>">
                     Voir le détail
                     <i class="m-icon-swapright m-icon-white"></i>
                   </a>
@@ -166,7 +166,7 @@
                     <div class="number"><?php echo number_format((((int)@$crawl_days[1]['loading_time'] + (int)@$crawl_days[2]['loading_time']) / 2)); ?>ms</div>
                     <div class="desc">Chargement <br/> moyen des pages </div>
                   </div>
-                  <a class="more" href="#">
+                  <a class="more" href="<?php echo base_url() . 'mastering/loadingtime'; ?>">
                     Voir le détail
                     <i class="m-icon-swapright m-icon-white"></i>
                   </a>
@@ -210,7 +210,7 @@
 </div>
 <!-- e -->
 
-<script src="<?php echo assets_url('plugins/flot/jquery.flot.js'); ?>" type="text/javascript"></script>
+<script src="<?php echo base_url() . 'mastering/loadingtime'; ?>'plugins/flot/jquery.flot.js'); ?>" type="text/javascript"></script>
 <script src="<?php echo assets_url('plugins/flot/jquery.flot.resize.js'); ?>" type="text/javascript"></script>
 <script src="<?php echo assets_url('plugins/flot/jquery.flot.time.js'); ?>" type="text/javascript"></script>
 <script>
