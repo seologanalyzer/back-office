@@ -47,46 +47,55 @@ class Mastering extends CI_Controller {
       $today->modify('-1 day');
 
     endfor;
-    
+
     //30 days
     $prc = $this->log_bot->list_elements(null, null, null, $select = 'count( id_log_bot ) as count, code_response', null, 'code_response');
-    
+
     $sum = 0;
     $sum_404 = 0;
-    foreach($prc as $code):
+    foreach ($prc as $code):
       $sum+=$code->count;
-      if($code->code_response == '404')
+      if ($code->code_response == '404')
         $sum_404 = $code->count;
     endforeach;
-    
-    $days = round(($sum_404/$sum)*100, 2);
+
+    $days = round(($sum_404 / $sum) * 100, 2);
     $days_pages = $sum_404;
     //today
-    $prc = $this->log_bot->list_elements(null, null, null, $select = 'count( id_log_bot ) as count, code_response', 'date BETWEEN "'.date('Y-m-d').' 00:00:00" AND "'.date('Y-m-d').' 23:59:59"', 'code_response');
-    
+    $prc = $this->log_bot->list_elements(null, null, null, $select = 'count( id_log_bot ) as count, code_response', 'date BETWEEN "' . date('Y-m-d') . ' 00:00:00" AND "' . date('Y-m-d') . ' 23:59:59"', 'code_response');
+
     $sum = 0;
     $sum_404 = 0;
-    foreach($prc as $code):
+    foreach ($prc as $code):
       $sum+=$code->count;
-      if($code->code_response == '404')
+      if ($code->code_response == '404')
         $sum_404 = $code->count;
     endforeach;
-    
-    $today = round(($sum_404/$sum)*100, 2);
+
+    $today = round(($sum_404 / $sum) * 100, 2);
     $today_pages = $sum_404;
-    
-    $datas = array('pages' => $errors, 'graph' => $fn, 
-      'percentage' => 
-        array('30days' => $days,
-              'today' => $today),
+
+    $datas = array('pages' => $errors, 'graph' => $fn,
+      'percentage' =>
+      array('30days' => $days,
+        'today' => $today),
       'total' =>
-        array('30days' => $days_pages,
-              'today' => $today_pages),
-      );
+      array('30days' => $days_pages,
+        'today' => $today_pages),
+    );
 
 
 
     $this->layout->view('mastering/responsecode404', $datas);
+  }
+
+  public function responsecode() {
+    $this->load->model('m_log_bot', 'log_bot');
+   
+    $datas = array('pages' => 'test');
+    
+    $this->layout->view('mastering/responsecode', $datas);
+    
   }
 
 }

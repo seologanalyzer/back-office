@@ -56,7 +56,7 @@
                     <i class="icon-bar-chart"></i>
                   </div>
                   <div class="details">
-                    <div class="number"><?php echo($crawl_day[1]->value); ?></div>
+                    <div class="number"><?php echo((int)@$crawl_day[1]->value); ?></div>
                     <div class="desc">Visites <br/> de GoogleBot </div>
                   </div>
                   <a class="more" href="#">
@@ -71,7 +71,7 @@
                     <i class="icon-bar-chart"></i>
                   </div>
                   <div class="details">
-                    <div class="number"><?php echo($crawl_day[2]->value); ?></div>
+                    <div class="number"><?php echo((int)@$crawl_day[2]->value); ?></div>
                     <div class="desc">Visites <br/> de BingBot </div>
                   </div>
                   <a class="more" href="#">
@@ -86,7 +86,7 @@
                     <i class="icon-dashboard"></i>
                   </div>
                   <div class="details">
-                    <div class="number"><?php echo number_format((($crawl_day[1]->loading_time + $crawl_day[2]->loading_time) / 2)); ?>ms</div>
+                    <div class="number"><?php echo number_format((((int)@$crawl_day[1]->loading_time + (int)@$crawl_day[2]->loading_time) / 2)); ?>ms</div>
                     <div class="desc">Chargement <br/> moyen des pages </div>
                   </div>
                   <a class="more" href="#">
@@ -101,7 +101,7 @@
                     <i class="icon-medkit"></i>
                   </div>
                   <div class="details">
-                    <div class="number"><?php echo $fourofour['today']; ?></div>
+                    <div class="number"><?php echo (int)@$fourofour['today']; ?></div>
                     <div class="desc">Pages 404 <br/> détectées </div>
                   </div>
                   <a class="more" href="<?php echo base_url(); ?>mastering/responsecode404">
@@ -133,7 +133,7 @@
                     <i class="icon-bar-chart"></i>
                   </div>
                   <div class="details">
-                    <div class="number"><?php echo($crawl_days[1]['value']); ?></div>
+                    <div class="number"><?php echo((int)@$crawl_days[1]['value']); ?></div>
                     <div class="desc">Visites <br/> de GoogleBot </div>
                   </div>
                   <a class="more" href="#">
@@ -148,7 +148,7 @@
                     <i class="icon-bar-chart"></i>
                   </div>
                   <div class="details">
-                    <div class="number"><?php echo($crawl_days[2]['value']); ?></div>
+                    <div class="number"><?php echo((int)@$crawl_days[2]['value']); ?></div>
                     <div class="desc">Visites <br/> de BingBot </div>
                   </div>
                   <a class="more" href="#">
@@ -163,7 +163,7 @@
                     <i class="icon-dashboard"></i>
                   </div>
                   <div class="details">
-                    <div class="number"><?php echo number_format((($crawl_days[1]['loading_time'] + $crawl_days[2]['loading_time']) / 2)); ?>ms</div>
+                    <div class="number"><?php echo number_format((((int)@$crawl_days[1]['loading_time'] + (int)@$crawl_days[2]['loading_time']) / 2)); ?>ms</div>
                     <div class="desc">Chargement <br/> moyen des pages </div>
                   </div>
                   <a class="more" href="#">
@@ -178,7 +178,7 @@
                     <i class="icon-medkit"></i>
                   </div>
                   <div class="details">
-                    <div class="number"><?php echo $fourofour['30days']; ?></div>
+                    <div class="number"><?php echo (int)@$fourofour['30days']; ?></div>
                     <div class="desc">Pages 404 <br/> détectées </div>
                   </div>
                   <a class="more" href="<?php echo base_url(); ?>mastering/responsecode404">

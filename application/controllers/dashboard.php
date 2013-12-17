@@ -58,9 +58,9 @@ class Dashboard extends CI_Controller {
 
     $datas = array(
       'configuration' => $this->configuration->getProperty('LAST_ANALYSIS'),
-      'crawl_day' => $crawl_today,
+      'crawl_day' => @$crawl_today,
       'crawl_days' => $crawl_days,
-      'fourofour' => array('today' => $fourofour_today[0]->count,
+      'fourofour' => array('today' => (int)@$fourofour_today[0]->count,
         '30days' => $fourofour_days[0]->count)
     );
 

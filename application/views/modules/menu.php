@@ -12,9 +12,12 @@
         <span class="title">Web Mastering</span>
       </a>
       <ul class="sub-menu">
+        <li <?php echo get_class_item('mastering/responsecode'); ?>>
+          <a href="<?php echo base_url() . 'mastering/responsecode'; ?>">Codes réponses</a>
+        </li>
         <li <?php echo get_class_item('mastering/responsecode404'); ?>>
           <a href="<?php echo base_url() . 'mastering/responsecode404'; ?>">Codes réponses 404</a>
-        </li>
+        </li> 
       </ul>
     </li>
     <li <?php echo get_class_item('ranking'); ?>>
