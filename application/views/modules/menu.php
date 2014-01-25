@@ -35,11 +35,11 @@
         <li <?php echo get_class_item('ranking/addkeyword'); ?>>
           <a href="<?php echo base_url() . 'ranking/addkeyword'; ?>">Ajouter un mot clé</a>
         </li>
-        <li <?php echo get_class_item('ranking/waiting'); ?>>
-          <a href="<?php echo base_url() . 'ranking/waiting'; ?>">Mots clés en cours</a>
+        <li <?php echo get_class_item('ranking/keywords'); ?>>
+          <a href="<?php echo base_url() . 'ranking/keywords'; ?>">Mots clés</a>
         </li>
-        <li <?php echo get_class_item('ranking/done'); ?>>
-          <a href="<?php echo base_url() . 'ranking/done'; ?>">Mots clés terminés</a>
+        <li <?php echo get_class_item('ranking/tools'); ?>>
+          <a href=#">Outils</a>
         </li>
       </ul>
     </li>

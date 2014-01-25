@@ -8,7 +8,7 @@
     </div>
   </div>
   <div class="portlet-body form">
-    <form method="POST" action="/client/add">
+    <form method="POST" action="/">
       <div class="row-fluid" style="margin-top:0px;">
         <div class="span2"></div>
         <div class="span9"></div>
@@ -43,7 +43,7 @@
         <div class="span2" style="margin-top:5px;">
         </div>
         <div class="span9" style="margin-top:5px;">
-          <input type="submit" class="btn blue" value="Lancer l'analyse"/>
+          <a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/sla/ranking/keywords"><input type="button" class="btn blue" value="Lancer l'analyse"/></a>
         </div>
       </div>
     </form>
