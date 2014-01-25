@@ -121,7 +121,7 @@
     <div class="portlet box yellow">
       <div class="portlet-title">
         <div class="caption">
-          <i class="icon-globe"></i> Pages 404 des 30 derniers jours
+          <i class="icon-globe"></i> Différentes pages des 30 derniers jours
         </div>
         <div class="tools">
         </div>
@@ -257,7 +257,7 @@
     <div class="portlet box yellow">
       <div class="portlet-title">
         <div class="caption">
-          <i class="icon-globe"></i> Pages 404 des 30 derniers jours
+          <i class="icon-globe"></i> Différentes pages des 30 derniers jours
         </div>
         <div class="tools">
         </div>
